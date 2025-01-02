@@ -3,6 +3,7 @@
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -41,7 +42,7 @@ const MobileNav = () => {
       <SheetTrigger className="flex justify-center items-center">
         <CiMenuFries className="text-[32px]" />
       </SheetTrigger>
-      <SheetContent className="flex flex-col">
+      <SheetContent className="flex flex-col" aria-describedby="content">
         {/* logo */}
         <div className="mt-32 mb-40 text-center text-2xl">
           <Link href={"/"}>
@@ -67,6 +68,10 @@ const MobileNav = () => {
             );
           })}
         </nav>
+
+        <SheetDescription className="hidden">
+          Description goes here
+        </SheetDescription>
       </SheetContent>
     </Sheet>
   );
