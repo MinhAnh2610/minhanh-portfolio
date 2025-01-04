@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import CountUp from "react-countup";
 
@@ -24,13 +24,11 @@ const stats = [
 ];
 
 const Stats = () => {
-  const [data, setData] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("https://api.github.com/users/MinhAnh2610");
       const userData = await response.json();
-      setData(userData);
       stats[0].num = userData.public_repos;
     };
 

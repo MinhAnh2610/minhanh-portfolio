@@ -1,7 +1,12 @@
 import Link from "next/link";
-import path from "path";
+import React from "react";
 
 import { FaGithub, FaLinkedinIn, FaYoutube, FaTwitter } from "react-icons/fa";
+
+type SocialProps = {
+  containerStyles: string; // Type as a string for className
+  iconStyles: string;      // Type as a string for className
+};
 
 const socials = [
   { icons: <FaGithub />, path: "https://github.com/MinhAnh2610" },
@@ -10,7 +15,7 @@ const socials = [
   { icons: <FaTwitter />, path: "" },
 ];
 
-const Social = ({ containerStyles, iconStyles }: any) => {
+const Social: React.FC<SocialProps> = ({ containerStyles, iconStyles }) => {
   return (
     <div className={containerStyles}>
       {socials.map((social, index) => {
