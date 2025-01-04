@@ -23,9 +23,13 @@ const projects = [
     num: "01",
     category: "fullstack",
     title: "project 1",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, vel.",
-    stack: [{ name: ".NET" }, { name: "ReactJs" }, { name: "TailwindCss" }],
+    description: "Diary web app to record your day",
+    stack: [
+      { name: ".NET 8" },
+      { name: "ReactJs" },
+      { name: "TailwindCss" },
+      { name: "MSSQL" },
+    ],
     image: "/assets/work/beanjournal.png",
     live: "https://beanjournal.vercel.app/",
     github: "https://github.com/MinhAnh2610/BeanJournal_FrontEnd",
@@ -127,7 +131,9 @@ const Work = () => {
                       <div className="relative w-full h-full">
                         <Image
                           src={project.image}
+                          priority
                           fill
+                          sizes="460px"
                           className="object-cover"
                           alt=""
                         />

@@ -20,7 +20,7 @@ const info = [
   {
     icon: <FaPhoneAlt />,
     title: "Phone",
-    description: "0902864508",
+    description: "(+84) 902864508",
   },
   {
     icon: <FaEnvelope />,
@@ -60,9 +60,8 @@ const Contact = () => {
             >
               <h3 className="text-4xl text-accent">Let's work together</h3>
               <p className="text-white/60">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                facilis pariatur consectetur odio nulla dignissimos tempora
-                eligendi dolorem perferendis numquam.
+                I would love to connect with you! Whether you have questions
+                about my projects, want to collaborate on a new idea.
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

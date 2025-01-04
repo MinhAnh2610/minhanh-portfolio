@@ -1,27 +1,44 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import CountUp from "react-countup";
 
 const stats = [
   {
     num: 1,
-    text: "Year of experience",
+    text: "Public Repositories",
   },
   {
     num: 2,
     text: "Projects completed",
   },
   {
-    num: 8,
+    num: 15,
     text: "Technologies learned",
   },
   {
-    num: 890,
+    num: 786,
     text: "Code commits",
   },
 ];
 
 const Stats = () => {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("https://api.github.com/users/MinhAnh2610");
+      const userData = await response.json();
+      setData(userData);
+      stats[0].num = userData.public_repos;
+    };
+
+    fetchData();
+  }, []);
+
+  
+
   return (
     <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
       <div className="container mx-auto">

@@ -8,29 +8,29 @@ const services = [
     num: "01",
     title: "Web Development",
     descrition:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores eius autem non quasi cupiditate quia dolorum unde, aliquam pariatur minima distinctio eum quos quod, laboriosam reprehenderit. Error, quod officia.",
-    href: "",
+      "Web development involves creating and maintaining websites and web applications. It combines both frontend and backend technologies to build functional, responsive, and user-friendly platforms.",
+    href: "https://www.geeksforgeeks.org/web-development/",
   },
   {
     num: "02",
-    title: "Backend Development",
+    title: "Frontend Development",
     descrition:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores eius autem non quasi cupiditate quia dolorum unde, aliquam pariatur minima distinctio eum quos quod, laboriosam reprehenderit. Error, quod officia.",
-    href: "",
+      "Frontend development focuses on the user interface and experience. Using React, I create dynamic, responsive, and visually appealing web applications that work seamlessly across all devices and browsers.",
+    href: "https://www.geeksforgeeks.org/front-end-development",
   },
   {
     num: "03",
-    title: "Frontend Development",
+    title: "Backend Development",
     descrition:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores eius autem non quasi cupiditate quia dolorum unde, aliquam pariatur minima distinctio eum quos quod, laboriosam reprehenderit. Error, quod officia.",
-    href: "",
+      "Backend development focuses on the server-side of applications, including APIs, database management, and security. With .NET, I build scalable and efficient backends that handle business logic, data management, and user authentication.",
+    href: "https://www.geeksforgeeks.org/backend-development",
   },
   {
     num: "04",
     title: "Business Analyst",
     descrition:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores eius autem non quasi cupiditate quia dolorum unde, aliquam pariatur minima distinctio eum quos quod, laboriosam reprehenderit. Error, quod officia.",
-    href: "",
+      "Business analysis involves understanding business needs and translating them into technical solutions. I collaborate with stakeholders to gather requirements, analyze processes, and ensure the development team aligns with business goals for efficient project delivery.",
+    href: "https://www.geeksforgeeks.org/how-to-become-a-business-analyst",
   },
 ];
 
