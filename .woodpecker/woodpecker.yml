@@ -1,0 +1,16 @@
+pipeline:
+  build:
+    image: node:18
+    commands:
+      - npm install
+      - npm run build
+
+    deploy:
+      image: appleboy/drone-scp
+      settings:
+        host: 192.168.1.101
+        username: root
+        password:
+          from_secret: DEPLOY_PASSWORD
+        target: "/var/www/portfolio"
+        source: .next/
