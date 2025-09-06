@@ -17,7 +17,7 @@ jobs:
     - name: Prepare image tags
       id: prep
       run: |
-        IMAGE_TAG="ghcr.io/${{ toLowerCase(github.repository) }}:latest"
+        IMAGE_TAG="ghcr.io/minhanh2610/minhanh-portfolio:latest"
         echo "IMAGE_TAG=${IMAGE_TAG}" >> $GITHUB_ENV
 
     - name: Set up Docker Buildx
