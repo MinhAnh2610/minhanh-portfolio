@@ -2,11 +2,14 @@ name: Deploy Next.js Portfolio
 
 on:
   push:
-    branches:
-      - master
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
 
 jobs:
-  build-and-deploy:
+  # ===== CI: Build & Test =====
+  build:
     runs-on: self-hosted
 
     permissions:
@@ -35,7 +38,18 @@ jobs:
         tags: ghcr.io/minhanh2610/minhanh-portfolio:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
+  
+  # ===== CD: Build & Deploy =====
+  deploy:
+    runs-on: self-hosted
+    
+    needs: build
 
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
     - name: Deploy to Proxmox
       uses: appleboy/ssh-action@master
       with:
