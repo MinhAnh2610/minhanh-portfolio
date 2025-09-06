@@ -43,7 +43,9 @@ jobs:
         username: root
         key: ${{ secrets.PROXMOX_SSH_PRIVATE_KEY }}
         script: |
+          mkdir -p /root/portfolio
           cd /root/portfolio
+          
           echo "version: '3'" > docker-compose.yml
           echo "services:" >> docker-compose.yml
           echo "  portfolio:" >> docker-compose.yml
