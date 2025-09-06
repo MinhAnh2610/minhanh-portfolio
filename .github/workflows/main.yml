@@ -3,7 +3,7 @@ name: Deploy Next.js Portfolio
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-deploy:
@@ -28,7 +28,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/${{ github.repository_owner }}/your-portfolio-image:latest
+        tags: ghcr.io/${{ github.MinhAnh2610 }}/minhanh-portfolio:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
@@ -43,8 +43,8 @@ jobs:
           echo "version: '3'" > docker-compose.yml
           echo "services:" >> docker-compose.yml
           echo "  portfolio:" >> docker-compose.yml
-          echo "    image: ghcr.io/${{ github.repository_owner }}/your-portfolio-image:latest" >> docker-compose.yml
-          echo "    container_name: nextjs-portfolio-app" >> docker-compose.yml
+          echo "    image: ghcr.io/${{ github.MinhAnh2610 }}/minhanh-portfolio:latest" >> docker-compose.yml
+          echo "    container_name: minhanh-portfolio" >> docker-compose.yml
           echo "    ports:" >> docker-compose.yml
           echo "      - '3000:3000'" >> docker-compose.yml
           echo "    restart: always" >> docker-compose.yml
