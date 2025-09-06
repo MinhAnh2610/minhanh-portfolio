@@ -3,7 +3,7 @@ name: Deploy Next.js Portfolio
 on:
   push:
     branches:
-      - master
+      - master # Or 'main', depending on your branch name
 
 jobs:
   build-and-deploy:
@@ -12,6 +12,13 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3
+
+    # NEW STEP: Prepare image tags in a dedicated, safe way
+    - name: Prepare image tags
+      id: prep
+      run: |
+        IMAGE_TAG="ghcr.io/${{ toLowerCase(github.repository) }}:latest"
+        echo "IMAGE_TAG=${IMAGE_TAG}" >> $GITHUB_ENV
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -28,7 +35,8 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/${{ toLowerCase(github.repository) }}:latest
+        # UPDATED: Use the reliable environment variable created in the previous step
+        tags: ${{ env.IMAGE_TAG }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
@@ -38,15 +46,22 @@ jobs:
         host: 192.168.1.102 # IP of your nextjs-portfolio CT
         username: root
         key: ${{ secrets.PROXMOX_SSH_PRIVATE_KEY }}
+        # UPDATED: Pass the IMAGE_TAG into the script's environment
+        env:
+          IMAGE_TAG: ${{ env.IMAGE_TAG }}
         script: |
+          mkdir -p /root/portfolio
           cd /root/portfolio
-          echo "version: '3'" > docker-compose.yml
+          
+          echo "version: '3.8'" > docker-compose.yml
           echo "services:" >> docker-compose.yml
           echo "  portfolio:" >> docker-compose.yml
-          echo "    image: ghcr.io/${{ toLowerCase(github.repository) }}:latest" >> docker-compose.yml
+          # UPDATED: Use the environment variable inside the script
+          echo "    image: $IMAGE_TAG" >> docker-compose.yml
           echo "    container_name: minhanh-portfolio" >> docker-compose.yml
           echo "    ports:" >> docker-compose.yml
           echo "      - '3000:3000'" >> docker-compose.yml
           echo "    restart: always" >> docker-compose.yml
+          
           docker-compose pull
           docker-compose up -d
